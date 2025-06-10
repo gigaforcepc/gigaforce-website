@@ -1,0 +1,385 @@
+/* 基本的なリセットとフォント */
+body {
+    margin: 0;
+    font-family: 'Noto Sans JP', sans-serif;
+    background-color: #eef2f5; /* 明るめの背景色 */
+    color: #333;
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1000px; /* 少し広めに */
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* ヘッダー */
+header {
+    background-color: #1a2a3a; /* ダークブルー */
+    color: #e0f2f7; /* 明るい青 */
+    padding: 60px 20px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    position: relative;
+    overflow: hidden; /* 背景の擬似要素がはみ出さないように */
+}
+
+header::before { /* 背景の模様 */
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at center, rgba(50, 70, 90, 0.5) 0%, rgba(26, 42, 58, 0) 70%);
+    opacity: 0.3;
+    z-index: 0;
+}
+
+header h1 {
+    font-family: 'Orbitron', sans-serif; /* ゲーミング感を出すフォント */
+    font-size: 4.5em;
+    margin-bottom: 5px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-shadow: 0 0 15px rgba(52, 152, 219, 0.7); /* 青い光 */
+    position: relative;
+    z-index: 1;
+}
+
+header p {
+    font-size: 1.3em;
+    opacity: 0.9;
+    position: relative;
+    z-index: 1;
+    text-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+}
+
+/* 各セクションの共通スタイル */
+section {
+    background-color: #fff;
+    padding: 30px;
+    margin-bottom: 25px;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    position: relative;
+    overflow: hidden;
+}
+
+h2 {
+    font-size: 2.5em;
+    color: #1a2a3a;
+    margin-bottom: 30px;
+    text-align: center;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    border-bottom: 3px solid #3498db; /* 青い下線 */
+    padding-bottom: 15px;
+    margin-top: 0;
+}
+
+h2 i {
+    color: #3498db; /* ライトブルー */
+    font-size: 1.1em;
+}
+
+.section-description {
+    text-align: center;
+    font-size: 1.1em;
+    color: #555;
+    margin-bottom: 40px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* 企業説明セクション（背景画像あり） */
+.section-intro-background {
+    background-image: url('./images/company_background.jpg'); /* ここに画像を指定 */
+    background-size: cover; /* カバーいっぱいに表示 */
+    background-position: center; /* 中央に配置 */
+    background-attachment: fixed; /* スクロールしても固定 */
+    color: #fff; /* テキスト色を白に */
+    text-shadow: 0 0 8px rgba(0, 0, 0, 0.7); /* テキストの視認性向上 */
+    padding: 80px 20px; /* パディングを広げる */
+    text-align: center;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.intro-overlay {
+    background-color: rgba(0, 0, 0, 0.6); /* 半透明のオーバーレイでテキストを読みやすく */
+    padding: 40px;
+    border-radius: 10px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.section-intro-background h2 {
+    color: #e0f2f7; /* ヘッダーの色を明るく */
+    border-bottom: 3px solid #e0f2f7; /* 下線も明るく */
+    margin-bottom: 25px;
+}
+
+.section-intro-background h2 i {
+    color: #e0f2f7;
+}
+
+.section-intro-background p {
+    font-size: 1.15em;
+    margin-bottom: 20px;
+    font-weight: 400;
+}
+
+.section-intro-background strong {
+    color: #3498db; /* 強調色は維持 */
+    text-shadow: 0 0 5px rgba(52, 152, 219, 0.5);
+}
+
+
+/* カードグリッド */
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 25px;
+}
+
+.card {
+    background-color: #fcfcfc;
+    border: 1px solid #e0e0e0;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    overflow: hidden; /* 画像のはみ出し防止 */
+}
+
+.card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* 個別のPC画像は削除したので、card-imgのスタイルは不要になりました */
+/* .card-img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+} */
+
+.card-body {
+    padding: 20px;
+}
+
+.card h3, .card h4 {
+    color: #1a2a3a;
+    font-size: 1.6em;
+    margin-bottom: 10px;
+    font-weight: 700;
+}
+
+.card p {
+    font-size: 0.95em;
+    color: #555;
+    margin-bottom: 15px;
+}
+
+.features-list {
+    list-style: none; /* デフォルトの点を消す */
+    padding: 0;
+    margin-bottom: 15px;
+}
+
+.features-list li {
+    font-size: 0.9em;
+    color: #444;
+    margin-bottom: 5px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.features-list i {
+    color: #27ae60; /* 緑のチェックマーク */
+    font-size: 1.1em;
+}
+
+.price {
+    font-weight: bold;
+    color: #e67e22; /* オレンジ */
+    font-size: 1.3em;
+    margin-top: 15px;
+    text-align: right;
+}
+
+/* カタログセクションのカテゴリ分け */
+.price-category {
+    margin-bottom: 50px;
+    padding-bottom: 30px;
+    border-bottom: 1px solid #ddd;
+}
+
+.price-category:last-child {
+    border-bottom: none;
+    margin-bottom: 20px;
+}
+
+.price-category h3 {
+    font-size: 2em;
+    color: #3498db;
+    margin-bottom: 30px;
+    text-align: center;
+    padding-bottom: 10px;
+    border-bottom: 3px solid #3498db;
+    display: inline-block;
+    width: 100%;
+    position: relative;
+}
+
+.price-category h3::after { /* 小さい装飾 */
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 30px;
+    height: 30px;
+    background-color: #3498db;
+    border-radius: 50%;
+    opacity: 0.2;
+}
+
+
+/* フルオーダーメイドセクション */
+.section-custom-order {
+    text-align: center;
+    background-color: #f7f9fb;
+    padding: 40px;
+    border: 1px solid #e0e6ec;
+}
+
+.section-custom-order p {
+    font-size: 1.1em;
+    color: #555;
+    margin-bottom: 25px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* お問い合わせセクション */
+.section-contact {
+    text-align: center;
+    background-color: #ecf0f1;
+    padding: 40px;
+    border: 2px dashed #bdc3c7;
+}
+
+.section-contact p {
+    font-size: 1.1em;
+    margin-bottom: 20px;
+    color: #444;
+}
+
+.line-button {
+    display: inline-flex; /* アイコンとテキストを並べる */
+    align-items: center;
+    justify-content: center;
+    background-color: #00c300; /* LINEグリーン */
+    color: #fff;
+    padding: 15px 35px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.3em;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    box-shadow: 0 6px 12px rgba(0, 195, 0, 0.4);
+    gap: 10px;
+    max-width: 350px; /* ボタンの最大幅 */
+    margin: 0 auto 15px auto;
+}
+
+.line-button:hover {
+    background-color: #00a000;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 16px rgba(0, 195, 0, 0.5);
+}
+
+.line-button i {
+    font-size: 1.5em;
+}
+
+.note {
+    font-size: 0.85em;
+    color: #777;
+    margin-top: 15px;
+}
+
+/* フッター */
+footer {
+    text-align: center;
+    padding: 30px;
+    margin-top: 50px;
+    background-color: #1a2a3a;
+    color: #e0f2f7;
+    font-size: 0.9em;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* レスポンシブ対応 */
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 3em;
+    }
+
+    header p {
+        font-size: 1.1em;
+    }
+
+    .section-intro-background {
+        padding: 40px 15px;
+        background-attachment: scroll; /* スマホでは固定しない */
+    }
+
+    .intro-overlay {
+        padding: 25px;
+    }
+
+    .section-intro-background h2 {
+        font-size: 2em;
+    }
+
+    .section-intro-background p {
+        font-size: 1em;
+    }
+
+    h2 {
+        font-size: 1.9em;
+        margin-bottom: 20px;
+    }
+
+    .section-description {
+        font-size: 1em;
+        margin-bottom: 30px;
+    }
+
+    .card-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .card h3, .card h4 {
+        font-size: 1.3em;
+    }
+
+    .price-category h3 {
+        font-size: 1.6em;
+    }
+
+    .line-button {
+        font-size: 1.1em;
+        padding: 12px 25px;
+    }
+}
